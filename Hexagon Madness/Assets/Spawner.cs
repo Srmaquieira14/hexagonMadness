@@ -8,6 +8,8 @@ public class Spawner : MonoBehaviour
 
     public GameObject hexagonPrefab;
 
+    public bool finDelJuego = false;
+
     private float nextTimeToSpawn = 0f;
     // Start is called before the first frame update
     void Start()
@@ -15,10 +17,15 @@ public class Spawner : MonoBehaviour
         
     }
 
+    public void finalizaElJuego()
+    {
+        finDelJuego = true;
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if(Time.time >= nextTimeToSpawn)
+        if(Time.time >= nextTimeToSpawn && !finDelJuego)
         {
             Instantiate(hexagonPrefab, Vector3.zero, Quaternion.identity);
             nextTimeToSpawn = Time.time + 1f / spawnRate;
