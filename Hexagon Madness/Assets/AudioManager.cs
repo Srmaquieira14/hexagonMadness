@@ -18,11 +18,13 @@ public class AudioManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+        DontDestroyOnLoad(gameObject);
 
         foreach(Sound s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
+            s.source.outputAudioMixerGroup = s.group;
 
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;

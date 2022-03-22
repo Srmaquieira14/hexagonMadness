@@ -20,6 +20,13 @@ public class MainMenu : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene("Game");
+        FindObjectOfType<AudioManager>().Stop("MenuTheme");
+    }
+
+    public void StartCredits()
+    {
+        SceneManager.LoadScene("Credits");
+        FindObjectOfType<AudioManager>().Stop("MenuTheme");
     }
 
     public void ButtonClick()
