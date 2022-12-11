@@ -1,0 +1,13 @@
+Base de datos con xampp usando el phpMyAdmin
+
+HOST = localhost
+DATABASE = hexagonmadness
+USER = root
+TABLE = records
+
+instalado node.js
+En el terminal:
+npm init -y (inicia el proyecto en node.js)
+npm install express añade express al proyecto
+nps install promise-mysql añade promise-mysql al proyecto
+node . lanza el servidor

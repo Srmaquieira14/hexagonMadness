@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class PantallaGameOver : MonoBehaviour
 {
     public Text textoPuntuacion;
+    public static int puntuacionGlob;
 
     void Start()
     {
@@ -17,6 +18,7 @@ public class PantallaGameOver : MonoBehaviour
     {
         FindObjectOfType<AudioManager>().Stop("GameTheme");
         gameObject.SetActive(true);
+        puntuacionGlob = puntuacion;
         textoPuntuacion.text = "Puntuacion: " + puntuacion.ToString();
     }
 
@@ -30,6 +32,12 @@ public class PantallaGameOver : MonoBehaviour
     {
         FindObjectOfType<AudioManager>().Stop("GameOver");
         SceneManager.LoadScene("MenuScene");
+    }
+
+    public void botonGuardarRecord()
+    {
+        FindObjectOfType<AudioManager>().Stop("GameOver");
+        SceneManager.LoadScene("SaveRecord");
     }
 
     public void ButtonClick()
