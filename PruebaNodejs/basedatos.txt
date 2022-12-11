@@ -1,3 +1,5 @@
+Insomnia para gestionar las llamadas a la api
+VScode 
 Base de datos con xampp usando el phpMyAdmin
 
 HOST = localhost
