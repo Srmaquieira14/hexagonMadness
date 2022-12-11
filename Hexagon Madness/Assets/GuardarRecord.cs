@@ -7,6 +7,8 @@ using System.Net;
 using System.Net.Http;
 using System.IO;
 using System.Collections.Specialized;
+using Newtonsoft.Json;
+using System.Text;
 
 public class GuardarRecord : MonoBehaviour
 {
@@ -43,14 +45,15 @@ public class GuardarRecord : MonoBehaviour
             //StreamReader reader = new StreamReader(response.GetResponseStream());
             //string json = reader.ReadToEnd();
             //Debug.Log(json);
-            var values = new Dictionary<string, string>
+            using(var httpClient = new HttpClient())
             {
-                { "nombre", textoInputNombre },
-                { "valor", PantallaGameOver.puntuacionGlob.ToString() }
-            };
-            var content = new FormUrlEncodedContent(values);
-            var response = await client.PostAsync("http://localhost:8080/record", content);
-            var responseString = await response.Content.ReadAsStringAsync();
+                var res = await httpClient.PostAsync("http://localhost:8080/record",
+                 new StringContent(JsonConvert.SerializeObject(
+                    new {nombre = textoInputNombre, valor = PantallaGameOver.puntuacionGlob.ToString()}),
+                    Encoding.Default,"application/json")
+                    );
+            }
+            Debug.Log("hola llegamo");
         } else {
             textoError.text = "¡Introduzca un nombre!";
             Debug.Log("La cadena de nombre no debe ir vacia");
