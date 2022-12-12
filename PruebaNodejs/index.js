@@ -23,7 +23,7 @@ app.use(express.json())
 app.get('/records', async(req, res)=>{
     try{
     const connection = await getConnection();
-    const result = await connection.query("SELECT * from records");
+    const result = await connection.query("SELECT * from records order by valor desc");
     res.json(result);
     } catch(e){
         res.status(500);

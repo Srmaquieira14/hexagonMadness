@@ -28,6 +28,11 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("Credits");
         FindObjectOfType<AudioManager>().Stop("MenuTheme");
     }
+    public void StartRecords()
+    {
+        SceneManager.LoadScene("RecordsScene");
+        FindObjectOfType<AudioManager>().Stop("MenuTheme");
+    }
 
     public void ButtonClick()
     {

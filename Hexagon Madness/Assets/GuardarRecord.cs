@@ -39,12 +39,6 @@ public class GuardarRecord : MonoBehaviour
     public async void botonGuardarRecord(){
         if(textoInputNombre != ""){
             textoError.text = "";
-            Debug.Log("Boton de guardar record ha sido pulsado " + textoInputNombre);
-            //HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://localhost:8080/records");
-            //HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-            //StreamReader reader = new StreamReader(response.GetResponseStream());
-            //string json = reader.ReadToEnd();
-            //Debug.Log(json);
             using(var httpClient = new HttpClient())
             {
                 var res = await httpClient.PostAsync("http://localhost:8080/record",
@@ -53,7 +47,8 @@ public class GuardarRecord : MonoBehaviour
                     Encoding.Default,"application/json")
                     );
             }
-            Debug.Log("hola llegamo");
+            FindObjectOfType<AudioManager>().Stop("MenuTheme");
+            SceneManager.LoadScene("MenuScene");
         } else {
             textoError.text = "¡Introduzca un nombre!";
             Debug.Log("La cadena de nombre no debe ir vacia");
