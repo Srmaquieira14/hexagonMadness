@@ -1,7 +1,7 @@
 # hexagonMadness
 Proyecto de fin de ciclo
 
-----IMPORTANTE----
+<p><b>----IMPORTANTE----</b></p>
 <p>Este juego tira de una API REST que esta montada de forma local.
 Para que funcione hay que tener una base de datos (Recomendado XAMPP) llamada hexagonmadness con una tabla que sea records
 La tabla debe tener un id int autoincremental y una columna llamada nombre varchar y otra valor int
@@ -9,7 +9,19 @@ El resto de instrucciones se encuentran en la carpeta PruebaNodejs en el fichero
 Basicamente hay que abrir la carpeta con Visual Studio Code, abrir un terminal y escribir el comando node .
 Esto hará que la API este activa y escuchando, una vez esto esta listo lanzamos el juego y a disfrutar!</p>
 
-----HISTORICO----
+<p><b>----SENTENCIAS SQL----</b>
+create database hexagonmadness;
+
+use hexagonmadness;
+
+CREATE TABLE records(
+    id int NOT NULL AUTO_INCREMENT,
+    nombre varchar(255),
+    valor int(11),
+    PRIMARY KEY (id)
+);</p>
+
+<p><b>----HISTORICO----</b></p>
 <p>FECHA: 28/11/2021</p>
 <p><b>TITULO DEL COMMIT: Initial commit.</b> Primer commit del proyecto, simplemente para abrir el mismo, hacer un par de carpetas y comprobar que la instalación
 de GitHub Desktop funciona correctamente.</p>
@@ -40,3 +52,5 @@ de GitHub Desktop funciona correctamente.</p>
 
 <p>FECHA: 13/12/2022</p>
 <p><b>TITULO DEL COMMIT: README.</b> Creación del histórico en el README, aparte de añadir una sentencia de creación sql para la creación de la bd y la tabla. Subido al proyecto un script "sentenciasSQL.sql" que también contiene dichas sentencias.</p>
+
+<p><b>TITULO DEL COMMIT: README 2.</b> Debido a que el README fue editado en el propio GitHub en navegador se hace este último commit con el fichero sql y las sentencias en el README</p>
